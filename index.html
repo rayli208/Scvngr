@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <title>Scavengr</title>
+</head>
+
+<body>
+  <!--JUMBOTRON-->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 white-header">Scavengr</h1>
+      <p class="lead white-secondary">
+        The all in one job hunting app. Stay connected to all your jobs in one
+        easy, organized palce.
+      </p>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#jobInfoModal">
+        Enter Job Info
+      </button>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#searchJobsModal">
+          Search Jobs
+        </button>
+    </div>
+  </div>
+  <!--END OF JUMBOTRON-->
+
+  <!--LABELS-->
+  <div class="row">
+    <div class="col-4 bg-dpurp white">
+      <h2>Applied</h2>
+    </div>
+    <div class="col-4 bg-purp white">
+      <h2>Heard Back</h2>
+    </div>
+    <div class="col-4 bg-lpurp white">
+      <h2>Offer</h2>
+    </div>
+  </div>
+  <!--END OF LABELS-->
+
+  <!--CARD CONTAINER-->
+  <div class="row">
+    <!--COLUMN FOR APPLIED-->
+    <div class="col-4 bg-dpurp pt-4">
+
+        <div class="card mx-auto mb-3" style="width: 18rem;">
+            <div class="card">
+              <button class="btn card-header" type="button" data-toggle="collapse" data-target="#cardCollapse1"
+                aria-expanded="false" aria-controls="cardCollapse1">
+                <h5 class="card-title">Microsoft</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Front-end Developer</h6>
+              </button>
+            </div>
+            <div class="card-body collapse" id="cardCollapse1">
+              <h6 class="text-center pb-2">Contact Info:</h6>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <i class="fas fa-phone"></i> <a href="tel:215-222-1234">215-222-1234</a>
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-envelope"></i> <a href="mailto:rayli@gmail.com">rayli@gmail.com</a>
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-map-pin"></i> 123 Microsoft Drive
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-dollar-sign"></i> 55,000
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-info-circle"></i> Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Incidunt aliquid voluptatum
+                  sequi autem. Aspernatur provident sequi, explicabo sunt
+                  officiis nam?
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </div>
+
+      <div class="card mx-auto mb-3" style="width: 18rem;">
+        <div class="card">
+          <button class="btn card-header" type="button" data-toggle="collapse" data-target="#cardCollapse2"
+            aria-expanded="false" aria-controls="cardCollapse2">
+            <h5 class="card-title">Facebook</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Back-end Developer</h6>
+          </button>
+        </div>
+        <div class="card-body collapse" id="cardCollapse2">
+          <h6 class="text-center pb-2">Contact Info:</h6>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <i class="fas fa-phone"></i> <a href="tel:555-555-5555">555-555-5555</a>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-envelope"></i> <a href="mailto:tim@gmail.com">tim@gmail.com</a>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-map-pin"></i> 456 Facebook Drive
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-dollar-sign"></i> 60,000
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-info-circle"></i> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Incidunt aliquid voluptatum
+              sequi autem. Aspernatur provident sequi, explicabo sunt
+              officiis nam?
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 bg-purp pt-4">
+    <!--COLUMN FOR HEARD BACK-->
+      
+    </div>
+
+    <div class="col-4 bg-lpurp pt-4">
+    <!--COLUMN FOR OFFER-->
+      
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-dark">
+    <span class="text-white">
+      Rayli Raykov
+    </span>
+    <span class="text-white">
+      Justin Gitterman
+    </span>
+    <span class="text-white">
+      Brandon Cotes
+    </span>
+    <span class="text-white">
+      Alex Reniakiewicz
+    </span>
+  </nav>
+  
+
+
+
+
+
+
+
+
+<!--MODALS-->
+  <!-- SETTING UP CARD MODAL-->
+  <div class="modal fade" id="jobInfoModal" tabindex="-1" role="dialog" aria-labelledby="jobInfoModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="jobInfoModal">
+            Job Information
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" placeholder="ex. Microsoft" />
+            </div>
+            <div class="form-group">
+              <label for="title">Job Title</label>
+              <input type="text" class="form-control" id="title" placeholder="ex. Production Manager" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" class="form-control" id="phone" placeholder="ex. 123-456-7890" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" placeholder="ex. johnsmith@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="ex. 123 random rd, fakecity, PA" />
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="text" class="form-control" id="salary" placeholder="ex. $60,000" />
+            </div>
+            <div class="form-group">
+              <label for="text-area">Additional Info..</label>
+              <textarea class="form-control" id="text-area" placeholder="ex. Remember to follow up in a week!"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END OF SETTING UP CARD MODAL-->
+
+  <!--MODALS-->
+  <!-- SETTING UP CARD MODAL-->
+  <div class="modal fade" id="searchJobsModal" tabindex="-1" role="dialog" aria-labelledby="searchJobsModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchJobsModal">
+            Search for Jobs:
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END OF SETTING UP CARD MODAL-->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
