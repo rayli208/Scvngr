@@ -73,3 +73,53 @@ $(document).ready(function(){
 })
 
 
+
+
+//API Search
+$("#search-user-input").click(function (e) {
+  e.preventDefault();
+ 
+//  var appID = 'd8d73b54';
+//  var appKey = 'f48deeda8d68ea1d2e670db1346ab43f';
+ var userSearch = $("#user-search-job").val().trim();
+ var userCity = $("#user-search-city").val().trim();
+ 
+ var queryURL = `http://api.adzuna.com/v1/api/jobs/us/search/1?app_id=d8d73b54&app_key=f48deeda8d68ea1d2e670db1346ab43f&results_per_page=10&what=${userSearch}&where=${userCity}&content-type=application/json`;
+ 
+ $.ajax({
+  url: queryURL,
+  method: "GET"
+ }).then(function (response) {
+  // console.log(response.results.length)
+ 
+  // console.log(response.results[0])
+ 
+  for (var i = 0; i < response.results.length; i++) {
+ 
+    var title = response.results[i].title
+    var company = response.results[i].company.display_name
+    var location = response.results[i].location.display_name
+    var jobLink = response.results[i].redirect_url
+ 
+    var card =
+    `<div class="card text-center mb-3">
+   <div class="card-header  bg-dark text-white">
+     <strong><span id="user-search-title">${title}</span></strong>
+   </div>
+   <div class="card-body">
+     <p class="card-text"><strong>Company</strong>: <span id="user-search-company">${company}</span></p>
+     <p class="card-text"><strong>Location</strong>: <span id="user-search-location">${location}</span></p>
+   </div>
+   <div class="card-footer text-white bg-dark">
+     <a target="_blank" href="${jobLink}" class="btn btn-outline-light">Apply</a>
+   </div>
+ </div>`
+ 
+ $("#box").append(card);
+ 
+  }
+ 
+ });
+ 
+  });
+
