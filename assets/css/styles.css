@@ -57,3 +57,7 @@
   border: 1px darkred solid;
   border-radius: 50%;
 }
+
+#applied{
+  min-height: 500px;
+}

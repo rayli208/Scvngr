@@ -1,3 +1,4 @@
+//Make cards
 $(document).ready(function(){
   var giantContainer = localStorage.getItem('giantContainer');
   var counter = localStorage.getItem('counter') || 0;
@@ -13,6 +14,7 @@ $(document).ready(function(){
     var phoneNumber = $("#phone").val().trim();
     var email = $("#email").val().trim();
     var location = $("#location").val().trim();
+    var link = $("#link").val().trim();
     var salary = $("#salary").val().trim();
     var info = $("#text-area").val().trim();
   
@@ -24,15 +26,14 @@ $(document).ready(function(){
         <h6 class="card-subtitle mb-2 text-muted">${jobTitle}</h6>
       </button>
     </div>
-    <div class="card-body collapse" id="cardCollapse${counter}">
-      <h6 class="text-center pb-2">Contact Info:</h6>
+    <div class="card-body collapse text-center" id="cardCollapse${counter}">
+      <h6 class="pb-1">Contact Info:</h6>
+      <div class="btn-group pb-2" role="group" aria-label="Basic example">
+        <a class="btn btn-primary" href="tel:${phoneNumber}"> <i class="fas fa-phone"></i></a>
+        <a class="btn btn-success" href="mailto:${email}""> <i class="fas fa-envelope"></i></a> 
+        <a class="btn btn-info" target="_blank" href="https://${link}"> <i class="fas fa-link"></i></a>
+      </div>
       <ul class="list-group">
-        <li class="list-group-item">
-          <i class="fas fa-phone"></i> <a href="tel:${phoneNumber}">${phoneNumber}</a>
-        </li>
-        <li class="list-group-item">
-          <i class="fas fa-envelope"></i> <a href="mailto:${email}">${email}</a>
-        </li>
         <li class="list-group-item">
           <i class="fas fa-map-pin"></i> ${location}
         </li>
@@ -51,6 +52,15 @@ $(document).ready(function(){
   
     var applied = $("#applied");
     applied.append(card);
+
+    $("#company").val('');
+    $("#title").val('');
+    $("#phone").val('');
+    $("#email").val('');
+    $("#location").val('');
+    $("#link").val('');
+    $("#salary").val('');
+    $("#text-area").val('');
     
     counter++;
 
@@ -78,6 +88,8 @@ $(document).ready(function(){
 //API Search
 $("#search-user-input").click(function (e) {
   e.preventDefault();
+  $("#box").empty();
+
  
 //  var appID = 'd8d73b54';
 //  var appKey = 'f48deeda8d68ea1d2e670db1346ab43f';
@@ -103,15 +115,15 @@ $("#search-user-input").click(function (e) {
  
     var card =
     `<div class="card text-center mb-3">
-   <div class="card-header  bg-dark text-white">
+   <div class="card-header  bg-success text-white">
      <strong><span id="user-search-title">${title}</span></strong>
    </div>
    <div class="card-body">
      <p class="card-text"><strong>Company</strong>: <span id="user-search-company">${company}</span></p>
      <p class="card-text"><strong>Location</strong>: <span id="user-search-location">${location}</span></p>
    </div>
-   <div class="card-footer text-white bg-dark">
-     <a target="_blank" href="${jobLink}" class="btn btn-outline-light">Apply</a>
+   <div class="card-footer text-white bg-success">
+     <a target="_blank" href="${jobLink}" class="btn btn-block btn-light">Apply</a>
    </div>
  </div>`
  

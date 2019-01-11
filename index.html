@@ -15,16 +15,16 @@
   <!--JUMBOTRON-->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4 white-header">Scavengr</h1>
+      <h1 class="display-4 white-header">Scvngr</h1>
       <p class="lead white-secondary">
         The all in one job hunting app. Stay connected to all your jobs in one
-        easy, organized palce.
+        easy, organized place.
       </p>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#jobInfoModal">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#jobInfoModal">
         Enter Job Info
       </button>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#searchJobsModal">
+      <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#searchJobsModal">
         Search Jobs
       </button>
     </div>
@@ -124,7 +124,16 @@
             </div>
             <div class="form-group">
               <label for="salary">Salary</label>
-              <input type="text" class="form-control" id="salary" placeholder="ex. $60,000" />
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="text" class="form-control" id="salary" placeholder="ex. 60,000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="link">Link to Website</label>
+              <input type="text" class="form-control" id="link" placeholder="ex. www.google.com/jobs" />
             </div>
             <div class="form-group">
               <label for="text-area">Additional Info..</label>
@@ -161,8 +170,7 @@
           <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Search</label>
-              <input type="text" class="form-control" id="user-search-job" aria-describedby="emailHelp"
-                placeholder="ex. Front End Developer">
+              <input type="text" class="form-control" id="user-search-job" aria-describedby="emailHelp" placeholder="ex. Front End Developer">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">City</label>
@@ -173,7 +181,7 @@
 
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer text-centered">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
