@@ -18,7 +18,7 @@ $(document).ready(function(){
     var salary = $("#salary").val().trim();
     var info = $("#text-area").val().trim();
   
-    var card = `<div class="card mx-auto mb-3" style="width: 18rem;">
+    var card = `<div draggable="true" ondragstart="drag(event)" id="drag${counter}" class="card mx-auto mb-3" style="width: 18rem;">
     <div class="card">
       <button class="btn card-header" type="button" data-toggle="collapse" data-target="#cardCollapse${counter}"
         aria-expanded="false" aria-controls="cardCollapse${counter}">
@@ -135,3 +135,16 @@ $("#search-user-input").click(function (e) {
  
   });
 
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+  
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
