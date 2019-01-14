@@ -1,63 +1,168 @@
-.jumbotron{
+* {
+  font-family: ‘Raleway’, sans-serif;
+ }
+ 
+ .jumbotron{
   margin-bottom: 0;
   border-bottom: white 2px solid;
-  background-image: linear-gradient(to right bottom, rgba(1, 22, 56, 0.6), rgba(46, 41, 78, 0.8)), url(../images/background.jpeg);}
-
+  background-image: linear-gradient(to bottom right, #2E003E ,#C49991);
+ }
+ 
+ .navbar {
+  border-top: white 2px solid;
+  background-image: linear-gradient(to bottom right, #2E003E ,#C49991);
+ }
+ 
   .white-header{
     color: white;
   }
   .white-secondary{
     color: white;
   }
-
+ 
   .bg-dpurp{
-    background: #2E294E;
+    background: #AAA1C8;
   }
-
+ 
   .bg-purp{
-    background: #9055A2;
+    background: #D5C6E0;
   }
-
+ 
   .bg-lpurp{
-    background: #D499B9;
+    background: #F5E6E8;
   }
-
+ 
   .white{
-    color: white;
+    color: #2E003E;
     text-align: center;
     padding-top: 20px;
   }
-
+ 
+  #applied {
+    background: rgba(170, 161, 200, .75);
+  }
+ 
+  #heardBack {
+    background: rgba(213, 198, 224, .75);
+  }
+ 
+  #offer {
+    background: rgba(245, 230, 232, .75);
+  }
+ 
+  #applied, #heardBack, #offer {
+    min-height: 250px;
+  }
+ 
   .card-footer{
     background-color: white;
     text-align: right;
   }
-.fa-edit{
+ .fa-edit{
   font-size: 18px;
   padding: 7px 7px;
   color: green;
-}
-
-.fa-edit:hover{
+ }
+ 
+ .fa-edit:hover{
   transition: 1s;
   font-size: 20px;
   border: 1px green solid;
   border-radius: 50%;
-}
-
-.fa-trash-alt{
+ }
+ 
+ .fa-trash-alt{
   font-size: 18px;
   padding: 7px 7px;
   color: darkred;
-}
-
-.fa-trash-alt:hover{
+ }
+ 
+ .fa-trash-alt:hover{
   transition: 1s;
   font-size: 20px;
   border: 1px darkred solid;
   border-radius: 50%;
+ }
+ 
+ .image-box {
+   width: 60%;
+   margin: 0 auto;
+   align-items: center;
+ }
+ 
+ #btn-login {
+   margin-top: 4%;
+   font-family: ‘Raleway’, sans-serif;
+ }
+ 
+ .background-gradient {
+  height: 100vh;
+  background-color: #2E003E; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #2E003E ,#C49991); /* Standard syntax (must be last) */
+  display: flex;
+  align-items: center;
+ }
+ 
+ 
+ #btn-signout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 1%;
+  margin-right: 1%
+ }
+ 
+ .logoHeader {
+   width: 75%;
+ }
+
+ .btn-pink {
+  color: #fff;
+  background-color: #C49991;
+  border-color: #C49991;
 }
 
-#applied{
-  min-height: 500px;
+.btn-pink:hover {
+  color: #fff;
+  background-color: #B38C84;
+  border-color: #B38C84;
+}
+
+.btn-outline-pink {
+  color: #C49991;
+  border-color: #C49991;
+  background-color: rgba(0,0,0,0);
+}
+
+.btn-outline-pink:hover {
+  color: #fff;
+  background-color: #C49991;
+  border-color: #C49991;
+}
+
+.bg-purple {
+  background-color: #2E003E !important;
+  color: #fff;
+}
+
+.bg-pink {
+  background-color: #B38C84 !important;
+}
+
+.side-borders{
+  border-left: 1px white solid;
+  border-right: 1px white solid;
+}
+
+.side-borders:hover{
+  border-left: 1px white solid;
+  border-right: 1px white solid;
+}
+
+.card{
+  border:1.5px #C49991 solid;
+}
+
+.text-dimmed{
+  color: #C9BDBE;
 }

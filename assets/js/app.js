@@ -18,20 +18,20 @@ $(document).ready(function(){
     var salary = $("#salary").val().trim();
     var info = $("#text-area").val().trim();
   
-    var card = `<div draggable="true" ondragstart="drag(event)" id="drag${counter}" class="card mx-auto mb-3" style="width: 18rem;">
+    var card = `<div class="card mx-auto mb-3" style="width: 18rem;">
     <div class="card">
-      <button class="btn card-header" type="button" data-toggle="collapse" data-target="#cardCollapse${counter}"
+      <button class="btn card-header bg-purple" type="button" data-toggle="collapse" data-target="#cardCollapse${counter}"
         aria-expanded="false" aria-controls="cardCollapse${counter}">
         <h5 class="card-title">${company}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${jobTitle}</h6>
+        <h6 class="card-subtitle mb-2 text-dimmed">${jobTitle}</h6>
       </button>
     </div>
     <div class="card-body collapse text-center" id="cardCollapse${counter}">
       <h6 class="pb-1">Contact Info:</h6>
       <div class="btn-group pb-2" role="group" aria-label="Basic example">
-        <a class="btn btn-primary" href="tel:${phoneNumber}"> <i class="fas fa-phone"></i></a>
-        <a class="btn btn-success" href="mailto:${email}""> <i class="fas fa-envelope"></i></a> 
-        <a class="btn btn-info" target="_blank" href="https://${link}"> <i class="fas fa-link"></i></a>
+        <a class="btn btn-pink side-borders" href="tel:${phoneNumber}"> <i class="fas fa-phone"></i></a>
+        <a class="btn btn-pink side-borders" href="mailto:${email}""> <i class="fas fa-envelope"></i></a> 
+        <a class="btn btn-pink side-borders" target="_blank" href="https://${link}"> <i class="fas fa-link"></i></a>
       </div>
       <ul class="list-group">
         <li class="list-group-item">
@@ -115,14 +115,14 @@ $("#search-user-input").click(function (e) {
  
     var card =
     `<div class="card text-center mb-3">
-   <div class="card-header  bg-success text-white">
+   <div class="card-header bg-purple text-white">
      <strong><span id="user-search-title">${title}</span></strong>
    </div>
    <div class="card-body">
      <p class="card-text"><strong>Company</strong>: <span id="user-search-company">${company}</span></p>
      <p class="card-text"><strong>Location</strong>: <span id="user-search-location">${location}</span></p>
    </div>
-   <div class="card-footer text-white bg-success">
+   <div class="card-footer text-white bg-pink">
      <a target="_blank" href="${jobLink}" class="btn btn-block btn-light">Apply</a>
    </div>
  </div>`
@@ -134,17 +134,3 @@ $("#search-user-input").click(function (e) {
  });
  
   });
-
-  function allowDrop(ev) {
-    ev.preventDefault();
-  }
-  
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-  
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
