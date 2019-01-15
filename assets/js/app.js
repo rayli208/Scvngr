@@ -58,6 +58,7 @@ $(document).ready(function () {
   //Make cards
   $("#saveUserInfo").click(function (e) {
     e.preventDefault();
+    var stamp = moment().format('L');
     var company = $("#company")
       .val()
       .trim();
@@ -112,6 +113,7 @@ $(document).ready(function () {
       </ul>
     </div>
     <div class="card-footer">
+    <span class="text-muted"> Applied:  ${stamp} <span>
       <i class="fas fa-trash-alt trash"></i>
     </div>
   </div>`;
@@ -148,7 +150,9 @@ $(document).ready(function () {
     e.preventDefault();
     var targetCard = ($(this)
       .parent()
+      .parent().parent()
       .parent()[0]);
+      console.log(targetCard);
 
     //Use custom modals with SWAL
     swal({
@@ -211,7 +215,7 @@ $("#search-user-input").click(function (e) {
       var jobLink = response.results[i].redirect_url;
       //Create API cards
       var card = `<div class="card card-border text-center mb-3">
-   <div class="card-header card-header-purple bg-pink text-white">
+   <div class="card-header card-header-purple bg-purple text-white">
      <strong><span id="user-search-title">${title}</span></strong>
    </div>
    <div class="card-body">
@@ -219,7 +223,7 @@ $("#search-user-input").click(function (e) {
      <p class="card-text"><strong>Location</strong>: <span id="user-search-location">${location}</span></p>
    </div>
    <div class="card-footer card-footer-purple text-white bg-pink">
-     <a target="_blank" href="${jobLink}" class="btn btn-block btn-light">Apply</a>
+     <a target="_blank" href="${jobLink}" class="btn btn-pink btn-block">Apply</a>
    </div>
  </div>`;
 

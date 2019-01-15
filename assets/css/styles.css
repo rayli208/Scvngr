@@ -56,7 +56,6 @@
  
   .card-footer{
     background-color: white;
-    text-align: right;
   }
  .fa-edit{
   font-size: 18px;
@@ -76,6 +75,7 @@
   font-size: 18px;
   padding: 7px 7px;
   color: darkred;
+  float: right;
  }
  
  .fa-trash-alt:hover{
@@ -146,12 +146,12 @@
 }
 
 .bg-purple {
-  background-color: #2E003E !important;
   color: #fff;
+  background-image: linear-gradient(to bottom right, #2E003E ,#C49991);
 }
 
 .bg-pink {
-  background-color: #B38C84 !important;
+  background-image: linear-gradient(to bottom right, #C49991 ,#2E003E);
 }
 
 .side-borders{
@@ -185,6 +185,8 @@ button h5 {
 .card-border, .card-header-purple, .card-footer-purple{
   border: 2px solid #2E003E;
 }
+
+
 
 .btn-primary{
   color: #2E003E;
