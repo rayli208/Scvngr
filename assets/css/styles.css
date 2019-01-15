@@ -162,6 +162,7 @@
 
 .card{
   border:1.5px #C49991 solid;
+  width: 90% !important;
 }
 
 .text-dimmed{
