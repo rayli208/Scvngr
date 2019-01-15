@@ -1,198 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="shortcut icon" type="image/png" href="assets/images/scvngr_favicon-02.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-  <link href=“https://fonts.googleapis.com/css?family=Raleway:300,400,600” rel=“stylesheet”>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <title>Scavengr</title>
-</head>
-
-<body>
-  <!--JUMBOTRON-->
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <button type=“button” class='btn btn-outline-light' id='btn-signout'>Log out</button>
-      <img src="assets/images/scvngr_main-header-05.png" class="logoHeader" alt="SCVNGR Flat Logo">
-      <!-- Button trigger modal -->
-      <br>
-      <button type="button" class="btn btn-outline-pink" data-toggle="modal" data-target="#jobInfoModal">
-        Enter Job Info
-      </button>
-      <button type="button" class="btn btn-outline-pink" data-toggle="modal" data-target="#searchJobsModal">
-        Search Jobs
-      </button>
-    </div>
-  </div>
-  <!--END OF JUMBOTRON-->
-  <!--GIANT CONTAINER-->
-  <div id="giantContainer">
-    <!--LABELS-->
-    <div class="row">
-      <div class="col-4 bg-dpurp white">
-        <h2>Applied</h2>
-      </div>
-      <div class="col-4 bg-purp white">
-        <h2>Heard Back</h2>
-      </div>
-      <div class="col-4 bg-lpurp white">
-        <h2>Offer</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/scvngr_favicon-02.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    />
+    <link href=“https://fonts.googleapis.com/css?family=Raleway:300,400,600”
+    rel=“stylesheet”>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Scavengr</title>
+  </head>
+  <body>
+    <div class="background-gradient">
+      <div class="image-box">
+        <img class="home-image" src="./assets/images/scvngr_home-screen-06.png" />
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-block"
+          id="btn-login"
+        >
+          Log in
+        </button>
       </div>
     </div>
-    <!--END OF LABELS-->
 
-    <!--CARD CONTAINER-->
-    <div class="row">
-      <!--COLUMN FOR APPLIED-->
-      <div id="applied" class="col-4 bg-dpurp jobList">
-        
-      </div>
-
-      <div id="heardBack" class="col-4 bg-purp jobList">
-        <!--COLUMN FOR HEARD BACK-->
-
-      </div>
-
-      <div id="offer" class="col-4 bg-lpurp jobList">
-        <!--COLUMN FOR OFFER-->
-
-      </div>
-    </div>
-  </div>
-  <nav class="navbar navbar-light bg-dark">
-    <span class="text-white">
-      Rayli Raykov
-    </span>
-    <span class="text-white">
-      Justin Gitterman
-    </span>
-    <span class="text-white">
-      Brandon Cotes
-    </span>
-    <span class="text-white">
-      Alex Reniakiewicz
-    </span>
-  </nav>
-
-  <!--MODALS-->
-  <!-- SETTING UP CARD MODAL-->
-  <div class="modal fade" id="jobInfoModal" tabindex="-1" role="dialog" aria-labelledby="jobInfoModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="jobInfoModal">
-            Job Information
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+    <div class="scvngr">
+      <!--JUMBOTRON-->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <button
+            type="“button”"
+            class="btn btn-outline-light"
+            id="btn-signout"
+          >
+            Log out
+          </button>
+          <img
+            src="assets/images/scvngr_main-header-05.png"
+            class="logoHeader"
+            alt="SCVNGR Flat Logo"
+          />
+          <!-- Button trigger modal -->
+          <br />
+          <button
+            type="button"
+            class="btn btn-outline-pink"
+            data-toggle="modal"
+            data-target="#jobInfoModal"
+          >
+            Enter Job Info
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-pink"
+            data-toggle="modal"
+            data-target="#searchJobsModal"
+          >
+            Search Jobs
           </button>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input required type="text" class="form-control" id="company" placeholder="ex. Microsoft" />
-            </div>
-            <div class="form-group">
-              <label for="title">Job Title</label>
-              <input required type="text" class="form-control" id="title" placeholder="ex. Production Manager" />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="number" class="form-control" id="phone" placeholder="ex. 123-456-7890" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="ex. johnsmith@gmail.com" />
-            </div>
-            <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" class="form-control" id="location" placeholder="ex. 123 random rd, fakecity, PA" />
-            </div>
-            <div class="form-group">
-              <label for="salary">Salary</label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">$</span>
-                </div>
-                <input type="number" class="form-control" id="salary" placeholder="ex. 60,000" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="link">Link to Website</label>
-              <input type="text" class="form-control" id="link" placeholder="ex. www.google.com/jobs" />
-            </div>
-            <div class="form-group">
-              <label for="text-area">Additional Info..</label>
-              <textarea class="form-control" id="text-area" placeholder="ex. Remember to follow up in a week!"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="submit" id="saveUserInfo" class="btn btn-pink" data-dismiss="modal">Save</button>
-        </div>
       </div>
-    </div>
-  </div>
-  <!--END OF SETTING UP CARD MODAL-->
-
-  <!--MODALS-->
-  <!-- SETTING UP API MODAL-->
-  <div class="modal fade" id="searchJobsModal" tabindex="-1" role="dialog" aria-labelledby="searchJobsModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="searchJobsModal">
-            Search for Jobs:
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <!--END OF JUMBOTRON-->
+      <!--GIANT CONTAINER-->
+      <div id="giantContainer">
+        <!--LABELS-->
+        <div class="row">
+          <div class="col-4 bg-dpurp white"><h2>Applied</h2></div>
+          <div class="col-4 bg-purp white"><h2>Heard Back</h2></div>
+          <div class="col-4 bg-lpurp white"><h2>Offer</h2></div>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInput1">Search</label>
-              <input type="text" class="form-control" id="user-search-job" aria-describedby="emailHelp" placeholder="ex. Front End Developer">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">City</label>
-              <input type="text" class="form-control" id="user-search-city" placeholder="ex. Philadelphia">
-            </div>
-          </form>
-          <div id="box">
+        <!--END OF LABELS-->
 
+        <!--CARD CONTAINER-->
+        <div class="row">
+          <!--COLUMN FOR APPLIED-->
+          <div id="applied" class="col-4 bg-dpurp jobList"></div>
+
+          <div id="heardBack" class="col-4 bg-purp jobList">
+            <!--COLUMN FOR HEARD BACK-->
+          </div>
+
+          <div id="offer" class="col-4 bg-lpurp jobList">
+            <!--COLUMN FOR OFFER-->
           </div>
         </div>
-        <div class="modal-footer text-centered">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" id="search-user-input" class="btn btn-pink">Search</button>
+      </div>
+      <nav class="navbar navbar-light bg-dark">
+        <span class="text-white"> Rayli Raykov </span>
+        <span class="text-white"> Justin Gitterman </span>
+        <span class="text-white"> Brandon Cotes </span>
+        <span class="text-white"> Alex Reniakiewicz </span>
+      </nav>
+
+      <!--MODALS-->
+      <!-- SETTING UP CARD MODAL-->
+      <div
+        class="modal fade"
+        id="jobInfoModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="jobInfoModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="jobInfoModal">Job Information</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    id="company"
+                    placeholder="ex. Microsoft"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="title">Job Title</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="ex. Production Manager"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="phone"
+                    placeholder="ex. 123-456-7890"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="ex. johnsmith@gmail.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="location">Location</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="location"
+                    placeholder="ex. 123 random rd, fakecity, PA"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="salary">Salary</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="salary"
+                      placeholder="ex. 60,000"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="link">Link to Website</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="link"
+                    placeholder="ex. www.google.com/jobs"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="text-area">Additional Info..</label>
+                  <textarea
+                    class="form-control"
+                    id="text-area"
+                    placeholder="ex. Remember to follow up in a week!"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                id="saveUserInfo"
+                class="btn btn-pink"
+                data-dismiss="modal"
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+      <!--END OF SETTING UP CARD MODAL-->
+
+      <!--MODALS-->
+      <!-- SETTING UP API MODAL-->
+      <div
+        class="modal fade"
+        id="searchJobsModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="searchJobsModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="searchJobsModal">Search for Jobs:</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInput1">Search</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="user-search-job"
+                    aria-describedby="emailHelp"
+                    placeholder="ex. Front End Developer"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="user-search-city"
+                    placeholder="ex. Philadelphia"
+                  />
+                </div>
+              </form>
+              <div id="box"></div>
+            </div>
+            <div class="modal-footer text-centered">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" id="search-user-input" class="btn btn-pink">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END OF SETTING UP CARD MODAL-->>
     </div>
-  </div>
-  <!--END OF SETTING UP CARD MODAL-->
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-  <script src="./assets/js/app.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
 </html>

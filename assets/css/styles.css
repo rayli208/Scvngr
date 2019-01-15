@@ -90,6 +90,10 @@
    margin: 0 auto;
    align-items: center;
  }
+
+ .home-image{
+   width: 100%;
+ }
  
  #btn-login {
    margin-top: 4%;

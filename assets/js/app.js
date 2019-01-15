@@ -1,12 +1,61 @@
-//Make cards
 $(document).ready(function () {
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
+    authDomain: "scvngr-f10ad.firebaseapp.com",
+    databaseURL: "https://scvngr-f10ad.firebaseio.com",
+    projectId: "scvngr-f10ad",
+    storageBucket: "scvngr-f10ad.appspot.com",
+    messagingSenderId: "851938769349"
+  };
+  firebase.initializeApp(config);
+
+
+  $(".scvngr").hide();
+  $(".background-gradient").show();
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('profile');
+  provider.addScope('email');
+
+  $(document).on("click", "#btn-login", function (e) {
+    e.preventDefault();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+      // This gives you a Google Access Token.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      userID = user.uid;
+      console.log(userID);
+      $(".background-gradient").hide();
+      $(".scvngr").show();
+
+    });
+  });
+
+  $(document).on("click", "#btn-signout", function () {
+    firebase.auth().signOut().then(function () {
+      $(".background-gradient").show();
+      $(".scvngr").hide();
+    });
+  });
+
+
+
+
+
+
+
+
+
+
   var giantContainer = localStorage.getItem("giantContainer");
   var counter = localStorage.getItem("counter") || 0;
 
   if (giantContainer) {
     $("#giantContainer").html(giantContainer);
   }
-
+  //Make cards
   $("#saveUserInfo").click(function (e) {
     e.preventDefault();
     var company = $("#company")
@@ -101,6 +150,7 @@ $(document).ready(function () {
       .parent()
       .parent()[0]);
 
+    //Use custom modals with SWAL
     swal({
         title: "Are you sure you want to delete this job!",
         type: "warning",
@@ -116,10 +166,11 @@ $(document).ready(function () {
           targetCard.remove();
           var giantContainer = $("#giantContainer").html();
           localStorage.setItem("giantContainer", giantContainer);
-        } 
+        }
       });
   });
 
+  //Use sortable for pulling cards around
   $(function () {
     $(".jobList").sortable({
       connectWith: ".jobList",
@@ -153,16 +204,12 @@ $("#search-user-input").click(function (e) {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    // console.log(response.results.length)
-
-    // console.log(response.results[0])
-
     for (var i = 0; i < response.results.length; i++) {
       var title = response.results[i].title;
       var company = response.results[i].company.display_name;
       var location = response.results[i].location.display_name;
       var jobLink = response.results[i].redirect_url;
-
+      //Create API cards
       var card = `<div class="card card-border text-center mb-3">
    <div class="card-header card-header-purple bg-pink text-white">
      <strong><span id="user-search-title">${title}</span></strong>
@@ -181,6 +228,7 @@ $("#search-user-input").click(function (e) {
   });
 });
 
+//Function for resizing the columns
 (function () {
   function resize() {
     var height = $(window).height();
