@@ -183,38 +183,38 @@ button h5 {
 }
 
 .btn-primary{
-  color: red;
-  border: red 1px solid;
+  color: #2E003E;
+  border: #2E003E 1px solid;
   background-color: white;
 }
 
 .btn-primary:hover{
   color: white;
-  border: red 1px solid;
-  background-color: red;
+  border: #2E003E 1px solid;
+  background-color: #2E003E;
 }
 
 .btn-primary:active{
   color: white !important;
-  border: red 1px solid !important;
-  background-color: red !important;
+  border: #2E003E 1px solid !important;
+  background-color: #2E003E !important;
 }
 
 
 .cancel{
-  color: green;
-  border: green 1px solid;
+  color: #C49991;
+  border: #C49991 1px solid;
   background-color: white;
 }
 
 .cancel:hover{
   color: white;
-  border: green 1px solid;
-  background-color: green;
+  border: #C49991 1px solid;
+  background-color: #C49991;
 }
 
 .cancel:active{
   color: white !important;
-  border: green 1px solid !important;
-  background-color: green !important;
+  border: #C49991 1px solid !important;
+  background-color: #C49991 !important;
 }
