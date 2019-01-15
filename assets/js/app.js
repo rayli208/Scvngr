@@ -136,7 +136,7 @@ $("#search-user-input").click(function(e) {
     .val()
     .trim();
 
-  var queryURL = `http://api.adzuna.com/v1/api/jobs/us/search/1?app_id=d8d73b54&app_key=f48deeda8d68ea1d2e670db1346ab43f&results_per_page=10&what=${userSearch}&where=${userCity}&content-type=application/json`;
+  var queryURL = `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=d8d73b54&app_key=f48deeda8d68ea1d2e670db1346ab43f&results_per_page=10&what=${userSearch}&where=${userCity}&content-type=application/json`;
 
   $.ajax({
     url: queryURL,
@@ -190,4 +190,4 @@ $("#search-user-input").click(function(e) {
   $(window).resize(function() {
     resize();
   });
-});
+})();
