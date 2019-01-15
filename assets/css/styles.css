@@ -64,6 +64,7 @@
   color: green;
  }
  
+ 
  .fa-edit:hover{
   transition: 1s;
   font-size: 20px;
@@ -166,3 +167,18 @@
 .text-dimmed{
   color: #C9BDBE;
 }
+
+.card button,
+button h5 {
+    width: 100%;
+  min-height: 30px;
+}
+
+#giantContainer .row {
+  margin: 0;
+}
+
+.card-border, .card-header-purple, .card-footer-purple{
+  border: 2px solid #2E003E;
+}
+
