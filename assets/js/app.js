@@ -1,5 +1,5 @@
 //Make cards
-$(document).ready(function() {
+$(document).ready(function () {
   var giantContainer = localStorage.getItem("giantContainer");
   var counter = localStorage.getItem("counter") || 0;
 
@@ -7,7 +7,7 @@ $(document).ready(function() {
     $("#giantContainer").html(giantContainer);
   }
 
-  $("#saveUserInfo").click(function(e) {
+  $("#saveUserInfo").click(function (e) {
     e.preventDefault();
     var company = $("#company")
       .val()
@@ -88,34 +88,45 @@ $(document).ready(function() {
     persist();
   });
 
+  //SAVE TO LOCAL STORAGE
   function persist() {
     var giantContainer = $("#giantContainer").html();
     localStorage.setItem("giantContainer", giantContainer);
     localStorage.setItem("counter", counter);
   }
 
-  $(document).on("click", ".trash", function(e) {
+  $(document).on("click", ".trash", function (e) {
     e.preventDefault();
-    console.log(this);
-    if (confirm("You sure wanna delete this job?")) {
-      $(this)
-        .parent()
-        .parent()[0]
-        .remove();
-    } else {
-      false;
-    }
-    var giantContainer = $("#giantContainer").html();
-    localStorage.setItem("giantContainer", giantContainer);
+    var targetCard = ($(this)
+      .parent()
+      .parent()[0]);
+
+    swal({
+        title: "Are you sure you want to delete this job!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: true
+      },
+      function (isConfirm) {
+        if (isConfirm) {
+          swal("Job Has Been Removed!", "I hope you find a cool job :)", "success");
+          targetCard.remove();
+          var giantContainer = $("#giantContainer").html();
+          localStorage.setItem("giantContainer", giantContainer);
+        } 
+      });
   });
 
-  $(function() {
+  $(function () {
     $(".jobList").sortable({
       connectWith: ".jobList",
       handle: ".card-title",
       cancel: ".portlet-toggle",
       placeholder: "portlet-placeholder ui-corner-all",
-      stop: function(event, ui) {
+      stop: function (event, ui) {
         persist();
       }
     });
@@ -123,7 +134,7 @@ $(document).ready(function() {
 });
 
 //API Search
-$("#search-user-input").click(function(e) {
+$("#search-user-input").click(function (e) {
   e.preventDefault();
   $("#box").empty();
 
@@ -141,7 +152,7 @@ $("#search-user-input").click(function(e) {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     // console.log(response.results.length)
 
     // console.log(response.results[0])
@@ -170,7 +181,7 @@ $("#search-user-input").click(function(e) {
   });
 });
 
-(function() {
+(function () {
   function resize() {
     var height = $(window).height();
     height = height - $(".navbar")[0].offsetHeight;
@@ -179,15 +190,15 @@ $("#search-user-input").click(function(e) {
     height =
       height -
       $("#giantContainer")
-        .find(".row")
-        .first()[0].offsetHeight;
+      .find(".row")
+      .first()[0].offsetHeight;
     $("#applied").attr("style", "min-height:" + height + "px;");
   }
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     resize();
   });
-  $(window).resize(function() {
+  $(window).resize(function () {
     resize();
   });
 })();

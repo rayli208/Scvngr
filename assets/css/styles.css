@@ -182,3 +182,39 @@ button h5 {
   border: 2px solid #2E003E;
 }
 
+.btn-primary{
+  color: red;
+  border: red 1px solid;
+  background-color: white;
+}
+
+.btn-primary:hover{
+  color: white;
+  border: red 1px solid;
+  background-color: red;
+}
+
+.btn-primary:active{
+  color: white !important;
+  border: red 1px solid !important;
+  background-color: red !important;
+}
+
+
+.cancel{
+  color: green;
+  border: green 1px solid;
+  background-color: white;
+}
+
+.cancel:hover{
+  color: white;
+  border: green 1px solid;
+  background-color: green;
+}
+
+.cancel:active{
+  color: white !important;
+  border: green 1px solid !important;
+  background-color: green !important;
+}
