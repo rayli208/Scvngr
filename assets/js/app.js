@@ -85,7 +85,7 @@ $(document).ready(function () {
       .trim();
     var id = "card-" + counter;
 
-    var card = `<div id="${id}" class="card mx-auto mb-3 mt-2" style="width: 18rem;">
+    var card = `<div id="${id}" class="shadow-lg card mx-auto mb-3 mt-2" style="width: 18rem;">
     <div class="card-top">
       <button class="btn card-header bg-purple" type="button" data-toggle="collapse" data-target="#cardCollapse${counter}"
         aria-expanded="false" aria-controls="cardCollapse${counter}">
@@ -214,7 +214,7 @@ $("#search-user-input").click(function (e) {
       var location = response.results[i].location.display_name;
       var jobLink = response.results[i].redirect_url;
       //Create API cards
-      var card = `<div class="card card-border text-center mb-3">
+      var card = `<div class="shadow-lg card card-border text-center mb-3">
    <div class="card-header card-header-purple bg-purple text-white">
      <strong><span id="user-search-title">${title}</span></strong>
    </div>
