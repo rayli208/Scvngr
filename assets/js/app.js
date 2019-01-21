@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // // Initialize Firebase
   // var config = {
   //   apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
@@ -9,7 +9,6 @@ $(document).ready(function () {
   //   messagingSenderId: "851938769349"
   // };
   // firebase.initializeApp(config);
-
 
   // $(".scvngr").hide();
   // $(".background-gradient").show();
@@ -40,15 +39,6 @@ $(document).ready(function () {
   //   });
   // });
 
-
-
-
-
-
-
-
-
-
   var giantContainer = localStorage.getItem("giantContainer");
   var counter = localStorage.getItem("counter") || 0;
 
@@ -56,9 +46,9 @@ $(document).ready(function () {
     $("#giantContainer").html(giantContainer);
   }
   //Make cards
-  $("#saveUserInfo").click(function (e) {
+  $("#saveUserInfo").click(function(e) {
     e.preventDefault();
-    var stamp = moment().format('L');
+    var stamp = moment().format("L");
     var company = $("#company")
       .val()
       .trim();
@@ -105,10 +95,10 @@ $(document).ready(function () {
           <i class="fas fa-map-pin"></i> ${location}
         </li>
         <li class="list-group-item">
-          <i class="fas fa-dollar-sign"></i> ${salary}
+          <i class="fas fa-dollar-sign"></i> <span class="salary">${salary}</span>
         </li>
         <li class="list-group-item">
-          <i class="fas fa-info-circle"></i> ${info}
+          <i class="fas fa-info-circle"></i><span class="info">${info}</span>
         </li>
       </ul>
     </div>
@@ -116,7 +106,7 @@ $(document).ready(function () {
     <span class="text-muted"> Applied:  ${stamp} </span>
       <i class="fas fa-trash-alt trash"></i>
       <i class="fas fa-angle-double-right move"></i>
-      <i class="fas fa-edit"></i>
+      <i class="fas fa-edit edit"></i>
     </div>
   </div>`;
 
@@ -149,15 +139,16 @@ $(document).ready(function () {
   }
 
   //DELETE CARDS USING TRASH CAN
-  $(document).on("click", ".trash", function (e) {
+  $(document).on("click", ".trash", function(e) {
     e.preventDefault();
-    var targetCard = ($(this)
+    var targetCard = $(this)
       .parent()
-      .parent()[0]);
+      .parent()[0];
     console.log(targetCard);
 
     //Use custom modals with SWAL
-    swal({
+    swal(
+      {
         title: "Are you sure you want to delete this job!",
         type: "warning",
         showCancelButton: true,
@@ -166,31 +157,37 @@ $(document).ready(function () {
         closeOnConfirm: false,
         closeOnCancel: true
       },
-      function (isConfirm) {
+      function(isConfirm) {
         if (isConfirm) {
-          swal("Job Has Been Removed!", "I hope you find a cool job :)", "success");
+          swal(
+            "Job Has Been Removed!",
+            "I hope you find a cool job :)",
+            "success"
+          );
           targetCard.remove();
           persist();
         }
-      });
+      }
+    );
   });
 
   //MOVE CARDS USING YELLOW ARROW
-  $(document).on("click", ".move", function (e) {
+  $(document).on("click", ".move", function(e) {
     e.preventDefault();
     var button = $(this);
 
-    var targetCard = ($(this)
+    var targetCard = $(this)
       .parent()
-      .parent()[0]);
+      .parent()[0];
 
-    var parentOfCard = ($(this)
+    var parentOfCard = $(this)
       .parent()
       .parent()
-      .parent()[0]);
+      .parent()[0];
 
     // Use custom modals with SWAL
-    swal({
+    swal(
+      {
         title: "Are you sure you want to push this job into the next stage?",
         type: "warning",
         showCancelButton: true,
@@ -199,29 +196,60 @@ $(document).ready(function () {
         closeOnConfirm: false,
         closeOnCancel: true
       },
-      function (isConfirm) {
+      function(isConfirm) {
         if (isConfirm) {
-          swal("Congratulations on moving one step closer to getting your dream job!", "Keep Killing It", "success");
-          if (parentOfCard.getAttribute('id') == "applied") {
+          swal(
+            "Congratulations on moving one step closer to getting your dream job!",
+            "Keep Killing It",
+            "success"
+          );
+          if (parentOfCard.getAttribute("id") == "applied") {
             $("#heardBack").append(targetCard);
             persist();
-          }else if(parentOfCard.getAttribute('id') == "heardBack"){
+          } else if (parentOfCard.getAttribute("id") == "heardBack") {
             $("#offer").append(targetCard);
             button.hide();
             persist();
           }
         }
-      });
+      }
+    );
+  });
+  //EDITTI
+  var edit = false;
+
+  //DELETE CARDS USING TRASH CAN
+  $(document).on("click", ".edit", function(e) {
+    e.preventDefault();
+    var targetCard = $(this)
+      .parent()
+      .parent()[0];
+    var salary = $(targetCard).find(".salary")[0];
+    var info = $(targetCard).find(".info")[0];
+    if (edit === false) {
+      $(salary).html(
+        `<input type="number" class="form-control newSalary" aria-describedby="newSalary" placeholder="update salary">`
+      );
+      $(info).html(
+        `<textarea class="form-control newInfo" rows="3" placeholder="update info"></textarea>`
+      );
+      edit = true;
+    }else if (edit === true) {
+      $(salary).html($(".newSalary").val());
+      $(info).html(($(".newInfo").val()));
+      edit = false;
+      persist();
+    }
   });
 
   //Use sortable for pulling cards around
-  $(function () {
+  $(function() {
     $(".jobList").sortable({
       connectWith: ".jobList",
       handle: ".card-title",
       cancel: ".portlet-toggle",
       placeholder: "portlet-placeholder ui-corner-all",
-      stop: function (event, ui) {
+      stop: function(event, ui) {
         persist();
       }
     });
@@ -229,7 +257,7 @@ $(document).ready(function () {
 });
 
 //API Search
-$("#search-user-input").click(function (e) {
+$("#search-user-input").click(function(e) {
   e.preventDefault();
   $("#box").empty();
 
@@ -247,7 +275,7 @@ $("#search-user-input").click(function (e) {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     for (var i = 0; i < response.results.length; i++) {
       var title = response.results[i].title;
       var company = response.results[i].company.display_name;
@@ -273,7 +301,7 @@ $("#search-user-input").click(function (e) {
 });
 
 //Function for resizing the columns
-(function () {
+(function() {
   function resize() {
     var height = $(window).height();
     height = height - $(".navbar")[0].offsetHeight;
@@ -282,15 +310,15 @@ $("#search-user-input").click(function (e) {
     height =
       height -
       $("#giantContainer")
-      .find(".row")
-      .first()[0].offsetHeight;
+        .find(".row")
+        .first()[0].offsetHeight;
     $("#applied").attr("style", "min-height:" + height + "px;");
   }
 
-  $(document).ready(function () {
+  $(document).ready(function() {
     resize();
   });
-  $(window).resize(function () {
+  $(window).resize(function() {
     resize();
   });
 })();
