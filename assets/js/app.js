@@ -1,44 +1,44 @@
 $(document).ready(function () {
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
-    authDomain: "scvngr-f10ad.firebaseapp.com",
-    databaseURL: "https://scvngr-f10ad.firebaseio.com",
-    projectId: "scvngr-f10ad",
-    storageBucket: "scvngr-f10ad.appspot.com",
-    messagingSenderId: "851938769349"
-  };
-  firebase.initializeApp(config);
+  // // Initialize Firebase
+  // var config = {
+  //   apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
+  //   authDomain: "scvngr-f10ad.firebaseapp.com",
+  //   databaseURL: "https://scvngr-f10ad.firebaseio.com",
+  //   projectId: "scvngr-f10ad",
+  //   storageBucket: "scvngr-f10ad.appspot.com",
+  //   messagingSenderId: "851938769349"
+  // };
+  // firebase.initializeApp(config);
 
 
-  $(".scvngr").hide();
-  $(".background-gradient").show();
+  // $(".scvngr").hide();
+  // $(".background-gradient").show();
 
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('profile');
-  provider.addScope('email');
+  // var provider = new firebase.auth.GoogleAuthProvider();
+  // provider.addScope('profile');
+  // provider.addScope('email');
 
-  $(document).on("click", "#btn-login", function (e) {
-    e.preventDefault();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      // This gives you a Google Access Token.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      userID = user.uid;
-      console.log(userID);
-      $(".background-gradient").hide();
-      $(".scvngr").show();
+  // $(document).on("click", "#btn-login", function (e) {
+  //   e.preventDefault();
+  //   firebase.auth().signInWithPopup(provider).then(function (result) {
+  //     // This gives you a Google Access Token.
+  //     var token = result.credential.accessToken;
+  //     // The signed-in user info.
+  //     var user = result.user;
+  //     userID = user.uid;
+  //     console.log(userID);
+  //     $(".background-gradient").hide();
+  //     $(".scvngr").show();
 
-    });
-  });
+  //   });
+  // });
 
-  $(document).on("click", "#btn-signout", function () {
-    firebase.auth().signOut().then(function () {
-      $(".background-gradient").show();
-      $(".scvngr").hide();
-    });
-  });
+  // $(document).on("click", "#btn-signout", function () {
+  //   firebase.auth().signOut().then(function () {
+  //     $(".background-gradient").show();
+  //     $(".scvngr").hide();
+  //   });
+  // });
 
 
 
@@ -113,8 +113,10 @@ $(document).ready(function () {
       </ul>
     </div>
     <div class="card-footer">
-    <span class="text-muted"> Applied:  ${stamp} <span>
+    <span class="text-muted"> Applied:  ${stamp} </span>
       <i class="fas fa-trash-alt trash"></i>
+      <i class="fas fa-angle-double-right move"></i>
+      <i class="fas fa-edit"></i>
     </div>
   </div>`;
 
@@ -146,13 +148,13 @@ $(document).ready(function () {
     localStorage.setItem("counter", counter);
   }
 
+  //DELETE CARDS USING TRASH CAN
   $(document).on("click", ".trash", function (e) {
     e.preventDefault();
     var targetCard = ($(this)
       .parent()
-      .parent().parent()
       .parent()[0]);
-      console.log(targetCard);
+    console.log(targetCard);
 
     //Use custom modals with SWAL
     swal({
@@ -168,8 +170,46 @@ $(document).ready(function () {
         if (isConfirm) {
           swal("Job Has Been Removed!", "I hope you find a cool job :)", "success");
           targetCard.remove();
-          var giantContainer = $("#giantContainer").html();
-          localStorage.setItem("giantContainer", giantContainer);
+          persist();
+        }
+      });
+  });
+
+  //MOVE CARDS USING YELLOW ARROW
+  $(document).on("click", ".move", function (e) {
+    e.preventDefault();
+    var button = $(this);
+
+    var targetCard = ($(this)
+      .parent()
+      .parent()[0]);
+
+    var parentOfCard = ($(this)
+      .parent()
+      .parent()
+      .parent()[0]);
+
+    // Use custom modals with SWAL
+    swal({
+        title: "Are you sure you want to push this job into the next stage?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: true
+      },
+      function (isConfirm) {
+        if (isConfirm) {
+          swal("Congratulations on moving one step closer to getting your dream job!", "Keep Killing It", "success");
+          if (parentOfCard.getAttribute('id') == "applied") {
+            $("#heardBack").append(targetCard);
+            persist();
+          }else if(parentOfCard.getAttribute('id') == "heardBack"){
+            $("#offer").append(targetCard);
+            button.hide();
+            persist();
+          }
         }
       });
   });
