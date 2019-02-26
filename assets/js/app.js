@@ -1,36 +1,36 @@
 $(document).ready(function() {
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
-    authDomain: "scvngr-f10ad.firebaseapp.com",
-    databaseURL: "https://scvngr-f10ad.firebaseio.com",
-    projectId: "scvngr-f10ad",
-    storageBucket: "scvngr-f10ad.appspot.com",
-    messagingSenderId: "851938769349"
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //   apiKey: "AIzaSyAVgI5vETbO659VZCyMclGYY8ROBwSw5Hw",
+  //   authDomain: "scvngr-f10ad.firebaseapp.com",
+  //   databaseURL: "https://scvngr-f10ad.firebaseio.com",
+  //   projectId: "scvngr-f10ad",
+  //   storageBucket: "scvngr-f10ad.appspot.com",
+  //   messagingSenderId: "851938769349"
+  // };
+  // firebase.initializeApp(config);
 
-  $(".scvngr").hide();
-  $(".background-gradient").show();
+  // $(".scvngr").hide();
+  // $(".background-gradient").show();
 
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('profile');
-  provider.addScope('email');
+  // var provider = new firebase.auth.GoogleAuthProvider();
+  // provider.addScope('profile');
+  // provider.addScope('email');
 
-  $(document).on("click", "#btn-login", function (e) {
-    e.preventDefault();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      // This gives you a Google Access Token.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      userID = user.uid;
-      console.log(userID);
-      $(".background-gradient").hide();
-      $(".scvngr").show();
+  // $(document).on("click", "#btn-login", function (e) {
+  //   e.preventDefault();
+  //   firebase.auth().signInWithPopup(provider).then(function (result) {
+  //     // This gives you a Google Access Token.
+  //     var token = result.credential.accessToken;
+  //     // The signed-in user info.
+  //     var user = result.user;
+  //     userID = user.uid;
+  //     console.log(userID);
+  //     $(".background-gradient").hide();
+  //     $(".scvngr").show();
 
-    });
-  });
+  //   });
+  // });
 
   $(document).on("click", "#btn-signout", function () {
     firebase.auth().signOut().then(function () {
